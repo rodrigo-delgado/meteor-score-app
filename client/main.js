@@ -5,67 +5,22 @@ import {Tracker} from 'meteor/tracker';
 
 import {Players} from './../imports/api/players';
 
-const renderPlayers = (playerList) => {
-
-  return playerList.map((player) => {
-    return (
-
-      <p key={player._id}>
-        {player.name} has {player.score} points
-
-
-        <button onClick={() => {
-          Players.update(player._id, {$inc: {score: -1}})}}> - 1
-        </button>
-
-        <button onClick={() => {
-            Players.update(player._id, {$inc: {score: 1}})}}> + 1
-        </button>
-
-      <button onClick={() => Players.remove(player._id)}>X</button>
-      </p>
-    );
-  });
-};
-
-const handleSubmit = (e) => {
-  let playerName = e.target.playerName.value
-
-
-  e.preventDefault();
-  //Grab the value from the form and put it in playerName
-  if (playerName) {
-    //clean the form field
-    e.target.playerName.value = '';
-
-    Players.insert({
-      name: playerName,
-      score: 0
-    });
-  }
-
-};
+//Import Components Here
+import TitleBar from './../imports/ui/TitleBar';
+import AddPlayer from './../imports/ui/AddPlayer';
+import PlayerList from './../imports/ui/PlayerList';
 
 Meteor.startup(() => {
-
   Tracker.autorun(() => {
     let players = Players.find().fetch();
-
-      let title = 'Score Keep';
-      let name = 'Rodrigo';
-      let jsx = (
-
+    let title = 'Score Keep';
+    let subtitle = 'Created by RGDV'
+    let jsx = (
+      
       <div>
-        <h1>{title}</h1>
-        <p>Hello {name}</p>
-        <p>This is the second paragraph</p>
-        {renderPlayers(players)}
-
-        <form onSubmit={handleSubmit}>
-          <input type="text" name="playerName" placeholder="Your Name Here"/>
-          <button>Add Player</button>
-        </form>
-
+        <TitleBar title={title} subtitle={subtitle}/>
+        <AddPlayer />
+        <PlayerList players={players}/>
       </div>
       );
 
