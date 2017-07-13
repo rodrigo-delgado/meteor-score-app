@@ -5,14 +5,15 @@ import PropTypes from 'prop-types';
 export default class TitleBar extends React.Component {
   renderSubtitle() {
     if (this.props.subtitle) {
-      return <h3>{this.props.subtitle}</h3>
+      return <h2 className='title-bar__subtitle'>{this.props.subtitle}</h2>
+
     }
   }
   render() {
     return (
       <div className='title-bar'>
         <div className='wrapper'>
-          <h2>{this.props.title}</h2>
+          <h1>{this.props.title}</h1>
           {this.renderSubtitle()}
         </div>
       </div>

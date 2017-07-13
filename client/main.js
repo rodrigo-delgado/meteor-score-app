@@ -19,6 +19,6 @@ Meteor.startup(() => {
     let title = 'Score Keep';
     let subtitle = 'Created by RGDV'
 
-  ReactDOM.render(<App title={title} players={players}/>, document.getElementById('app'));
+  ReactDOM.render(<App title={title} subtitle={subtitle} players={players}/>, document.getElementById('app'));
   });
 });

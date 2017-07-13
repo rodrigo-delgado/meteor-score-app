@@ -5,7 +5,11 @@ import Player from './Player';
 export default class PlayerList extends React.Component {
   renderPlayers() {
     if (this.props.players.length === 0) {
-      return <p>Add your first player to get starter.</p>
+      return (
+        <div className='item'>
+          <p className='item__message'>Add your first player to get starter.</p>
+        </div>
+      )
 
     } else {
 
