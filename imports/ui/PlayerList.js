@@ -24,7 +24,7 @@ export default class PlayerList extends React.Component {
   render() {
     return (
       <div>
-        <FlipMove duration={750} easing="ease-out">
+        <FlipMove maintainContainerHeight={true} duration={750} easing="ease-out">
           {this.renderPlayers()}
         </FlipMove>
       </div>
