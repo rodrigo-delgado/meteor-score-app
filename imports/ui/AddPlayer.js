@@ -4,10 +4,10 @@ import {Players} from './../api/players';
 
 export default class AddPlayer extends React.Component {
   handleSubmit(e) {
+    //Grab the value from the form and put it in playerName
     let playerName = e.target.playerName.value
 
     e.preventDefault();
-    //Grab the value from the form and put it in playerName
     if (playerName) {
       //clean the form field
       e.target.playerName.value = '';

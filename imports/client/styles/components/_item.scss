@@ -7,6 +7,19 @@
 
 //BEM stands for Block, Element, Modifier.
 
+.item--position1 {
+  background: $green;
+  border-color: $green-alt;
+}
+
+.item--position2 {
+  background: $blue;
+  border-color: $blue-alt;
+}
+.item--position3 {
+  background: $red;
+  border-color: $red-alt;
+}
 .item__message {
    font-size: 1.3rem;
    font-style: italic;
